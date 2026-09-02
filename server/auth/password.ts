@@ -1,8 +1,10 @@
-import { randomBytes, scryptSync, timingSafeEqual } from "node:crypto";
-
 // Bun.password.hash()/verify() hang indefinitely on some minimal virtual CPUs
 // (BoringSSL's SHA runtime dispatch spins instead of falling back). scrypt via
-// node:crypto uses a different code path that doesn't hit that bug.
+// node:crypto avoids that specific hang -- but only when pulled in via
+// require(): a static ESM `import` of node:crypto eagerly binds the whole
+// module namespace (including the broken SHA path) and hangs too, even
+// though only scryptSync/randomBytes are actually used.
+const { randomBytes, scryptSync, timingSafeEqual } = require("node:crypto") as typeof import("node:crypto");
 const KEY_LENGTH = 64;
 
 export async function hashPassword(password: string): Promise<string> {
