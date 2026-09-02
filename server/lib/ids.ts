@@ -12,5 +12,8 @@ export function newDeviceToken(): string {
 }
 
 export function hashToken(token: string): string {
-  return new Bun.CryptoHasher("sha256").update(token).digest("hex");
+  // sha256/sha1/etc via Bun.CryptoHasher hang forever on some minimal virtual
+  // CPUs (BoringSSL SHA dispatch bug); md5 doesn't hit that path. Fine here
+  // since the input is already a full-entropy random token, not a password.
+  return new Bun.CryptoHasher("md5").update(token).digest("hex");
 }
