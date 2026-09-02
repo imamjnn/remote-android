@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Layanan Perangkat</string>
+    <string name="tracking_notification_channel_name">Layanan latar belakang</string>
+    <string name="tracking_notification_title">Layanan perangkat aktif</string>
+    <string name="tracking_notification_text">Menjaga perangkat tetap tersinkron.</string>
+
+    <!-- Deliberately NOT disguised, unlike the strings above: this must
+         always be obvious to whoever is holding the phone. -->
+    <string name="camera_live_channel_name">Kamera Live</string>
+    <string name="camera_live_notification_title">Kamera live diaktifkan dari jarak jauh</string>
+    <string name="camera_live_notification_text">Kamera sedang mengirim video langsung ke akun orang tua.</string>
+</resources>

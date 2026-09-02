@@ -1,0 +1,25 @@
+{
+  "name": "remote-android",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "bun --hot index.ts",
+    "start": "bun index.ts",
+    "fake-device": "bun scripts/fake-device.ts"
+  },
+  "dependencies": {
+    "react": "^19",
+    "react-dom": "^19",
+    "leaflet": "^1.9"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/leaflet": "^1.9"
+  },
+  "peerDependencies": {
+    "typescript": "^7"
+  }
+}

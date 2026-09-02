@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Allows plain HTTP to any host. This app is meant to be pointed at a
+  self-hosted backend (see the plain-language warning shown on
+  PairingScreen); most self-hosted setups on a home network won't have a
+  TLS certificate. If you deploy the backend behind HTTPS, this file can be
+  tightened to only allow specific hosts or removed entirely.
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>
